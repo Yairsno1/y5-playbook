@@ -5,6 +5,13 @@ type ospot struct {
 	spot HalfCourtPos
 }
 
+func oMoved(o ospot, to HalfCourtPos) ospot {
+	return ospot{
+		o:    o.o,
+		spot: to,
+	}
+}
+
 //Setting represents the setting of the Os on the court during the play
 type Setting struct {
 	os   map[ONum]ospot
@@ -57,4 +64,8 @@ func CreateSetting(O1spot HalfCourtPos, O2spot HalfCourtPos, O3spot HalfCourtPos
 //CreateSetupOpen creates "Open" (1-2-2) initail half court setup
 func CreateSetupOpen() Setting {
 	return CreateSetting(TopOfTheKey, RightWing, LeftWing, RightCorner, LeftCorner, O1)
+}
+
+func copySetting(set Setting) Setting {
+	return CreateSetting(set.os[O1].spot, set.os[O2].spot, set.os[O3].spot, set.os[O4].spot, set.os[O5].spot, set.ball)
 }
