@@ -121,3 +121,39 @@ func Test_Do_Shot(t *testing.T) {
 		t.Errorf("1 shoots from %q, should be shoot from %q", got, want)
 	}
 }
+
+func Test_IExecution_Pass(t *testing.T) {
+	//Arrange + Act
+	pass := O1Sym.Pass(O2Sym)
+
+	//Assert
+	want := O2Sym
+	got := pass.(PassAction).teamate
+	if got != want {
+		t.Errorf("Ball handler is %q, should be %q", got, want)
+	}
+}
+
+func Test_IExecution_VCut(t *testing.T) {
+	//Arrange + Act
+	want := RightWing
+	vcut := O1Sym.VCut(want)
+
+	//Assert
+	got := vcut.(MoveAction).spot
+	if got != want {
+		t.Errorf("O1 did a v-cut to %q, should be to %q", got, want)
+	}
+}
+
+func Test_IExecution_DownScreen(t *testing.T) {
+	//Arrange + Act
+	want := LeftBlock
+	downScreen := O4Sym.DownScreen(want, O2Sym)
+
+	//Assert
+	got := downScreen.(ScreenAction).spot
+	if got != want {
+		t.Errorf("O4 set a down screen at %q, should be at %q", got, want)
+	}
+}
