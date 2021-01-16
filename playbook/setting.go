@@ -61,7 +61,52 @@ func CreateSetting(O1spot HalfCourtPos, O2spot HalfCourtPos, O3spot HalfCourtPos
 	return rv
 }
 
-//CreateSetupOpen creates "Open" (1-2-2) initail half court setup
+//CreateSetup122 creates 1-2-2 (left and right blocks are filled) initial half court setup
+func CreateSetup122() Setting {
+	return CreateSetting(TopOfTheKey, RightWing, LeftWing, RightBlock, LeftBlock, O1)
+}
+
+//CreateSetup131 creates 1-3-1 initial half court setup
+func CreateSetup131() Setting {
+	return CreateSetting(TopOfTheKey, RightWing, LeftWing, RightBlock, HighPost, O1)
+}
+
+//CreateSetup14High creates high 1-4 initial half court setup
+func CreateSetup14High() Setting {
+	return CreateSetting(TopOfTheKey, RightWing, LeftWing, RightElbow, LeftElbow, O1)
+}
+
+//CreateSetup212 creates 2-1-2 initial half court setup
+func CreateSetup212() Setting {
+	return CreateSetting(RightGuard, LeftGuard, RightCorner, LeftCorner, HighPost, O1)
+}
+
+//CreateSetup23 creates 2-3 initial half court setup
+func CreateSetup23() Setting {
+	return CreateSetting(RightGuard, LeftGuard, RightWing, LeftWing, HighPost, O1)
+}
+
+//CreateSetup4Out creates 4-out 1-in  initial half court setup
+func CreateSetup4Out() Setting {
+	return CreateSetting(RightGuard, LeftGuard, RightCorner, LeftCorner, RightBlock, O1)
+}
+
+//CreateSetupDoubleElbow creates double elbow initial half court setup
+func CreateSetupDoubleElbow() Setting {
+	return CreateSetting(TopOfTheKey, RightBlock, LeftBlock, RightElbow, LeftElbow, O1)
+}
+
+//CreateSetupHighDoubleStack creates high double stack initial half court setup
+func CreateSetupHighDoubleStack() Setting {
+	return CreateSetting(TopOfTheKey, RightElbow, LeftElbow, RightElbow, LeftElbow, O1)
+}
+
+//CreateSetupLowDoubleStack creates low double stack initial half court setup
+func CreateSetupLowDoubleStack() Setting {
+	return CreateSetting(TopOfTheKey, RightBlock, LeftBlock, RightBlock, LeftBlock, O1)
+}
+
+//CreateSetupOpen creates "Open" (1-2-2) initial half court setup
 func CreateSetupOpen() Setting {
 	return CreateSetting(TopOfTheKey, RightWing, LeftWing, RightCorner, LeftCorner, O1)
 }
