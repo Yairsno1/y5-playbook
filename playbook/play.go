@@ -33,6 +33,16 @@ func (play Play) CurrPhase() Phase {
 	return *rv
 }
 
+//Description gets the play's decription.
+func (play Play) Description() string {
+	return play.description
+}
+
+//Name gets the name of the play.
+func (play Play) Name() string {
+	return play.name
+}
+
 //PhaseCount indicates the play's number of phases.
 func (play Play) PhaseCount() int {
 	return len(play.phases)
